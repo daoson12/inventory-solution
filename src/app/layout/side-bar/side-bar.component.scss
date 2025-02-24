@@ -1,0 +1,16 @@
+aside {
+    min-width: 80px;
+    max-width: 256px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  aside .hidden {
+    display: none;
+  }
+  .active-link {
+    background-color: #e0f2fe; /* Light Blue */
+    color: #0284c7; /* Dark Blue */
+    font-weight: bold;
+    border-radius: 8px;
+  }

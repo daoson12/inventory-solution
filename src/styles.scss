@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@include mat.core();
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-container-color: white;
+  --mdc-filled-text-field-focus-container-color: white;
+}
+
+.mat-mdc-button.mat-mdc-icon-button {
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  aside {
+    width: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+  
+  .sidebar-open {
+    width: 100%;
+    min-width: 200px;
+  }
+}
