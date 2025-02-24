@@ -28,10 +28,5 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 export class SideBarComponent {
   @Input() collapsed = false;
 
-  navLinks = [
-    { name: 'Dashboard', path: '/', icon: 'dashboard' },
-    { name: 'Products', path: 'app/products', icon: 'shopping_cart' },
-    { name: 'Reports', path: '/reports', icon: 'bar_chart' },
-    { name: 'Orders', path: '/orders', icon: 'shopping_basket' }
-  ];
+  
 }
