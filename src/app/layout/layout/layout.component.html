@@ -1,13 +1,12 @@
+<div class="flex h-screen overflow-hidden">
+  <!-- Sidebar -->
+  <app-side-bar [collapsed]="isSidebarCollapsed"></app-side-bar>
 
-  <div class="flex">
-    <!-- Sidebar -->
-    <app-side-bar [collapsed]="isSidebarCollapsed"></app-side-bar>
-  
-    <!-- Main Content -->
-    <div class="flex-1 flex flex-col">
-      <app-nav-bar (sidebarToggle)="toggleSidebar()"></app-nav-bar>
-      <main class="p-6 bg-gray-100 h-screen overflow-auto">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+    <app-nav-bar (sidebarToggle)="toggleSidebar()"></app-nav-bar>
+    <main class="p-6 bg-gray-100 flex-grow overflow-auto">
+      <router-outlet></router-outlet>
+    </main>
   </div>
+</div>
