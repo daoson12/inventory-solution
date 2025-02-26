@@ -9,7 +9,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [materials, CommonModule, RouterModule, ReactiveFormsModule, FormsModule, SideBarComponent, NavBarComponent],
+  imports: [RouterOutlet, materials, CommonModule, RouterModule, ReactiveFormsModule, FormsModule, SideBarComponent, NavBarComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Color, NgxChartsModule, ScaleType } from '@swimlane/ngx-charts';
 import { materials } from '../../../shared/angular-material/material.module';
@@ -7,7 +7,7 @@ import { materials } from '../../../shared/angular-material/material.module';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, NgxChartsModule, materials],
+  imports: [RouterOutlet, RouterModule, CommonModule, NgxChartsModule, materials],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

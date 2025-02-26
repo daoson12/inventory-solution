@@ -61,6 +61,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-mdc-form-field-subscript-wrapper {
   display: none !important;
 }
+
+::ng-deep .mat-mdc-table {
+  background-color: white !important;
+}
+
+::ng-deep .mat-mdc-row, 
+::ng-deep .mat-mdc-cell {
+  background-color: white !important; /* Ensures pure white background */
+  color: #374151; /* Dark gray text for readability */
+}
+
+::ng-deep .mat-mdc-header-row {
+  background-color: #f3f4f6 !important; /* Light gray header */
+}
+
+::ng-deep .mat-mdc-row:hover {
+  background-color: #f9fafb !important; /* Light hover effect */
+}
+
+
 @media (max-width: 768px) {
   aside {
     width: 0;
