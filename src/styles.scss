@@ -14,19 +14,53 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-mat-form-field {
-  width: 100%;
-}
-
 .mat-mdc-form-field {
-  --mdc-filled-text-field-container-color: white;
-  --mdc-filled-text-field-focus-container-color: white;
+  --mdc-outlined-text-field-outline-width: 0px; /* Remove border */
+  --mdc-outlined-text-field-outline-color: transparent;
+  --mdc-outlined-text-field-hover-outline-color: transparent;
+  --mdc-outlined-text-field-focus-outline-color: transparent;
+  
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  background: white; /* Solid background */
+  border-radius: 6px; /* Smooth edges */
+  height: 55px; /* Reduce height */
 }
 
-.mat-mdc-button.mat-mdc-icon-button {
-  color: gray;
+
+/* Inner Input Field */
+.mat-mdc-text-field-wrapper {
+  padding: 5px !important; /* Reduce padding */
+
 }
 
+/* On Focus, make input shadow stand out */
+.mat-mdc-form-field.mat-focused {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Hide the default underline */
+.mdc-notched-outline {
+  display: none !important;
+}
+
+
+
+/* Placeholder and Text Styling */
+.mat-mdc-form-field-infix {
+  font-size: 15px !important; /* Improve readability */
+  font-weight: 400; /* Modern text weight */
+  color: #333; /* Darker text for better contrast */
+  padding: 10px 10px !important; /* Reduce inner spacing */
+}
+.mat-mdc-icon-button {
+
+  padding:  5px !important; /* Reduce inner spacing */
+}
+
+/* Remove unwanted space below */
+.mat-mdc-form-field-subscript-wrapper {
+  display: none !important;
+}
 @media (max-width: 768px) {
   aside {
     width: 0;
@@ -39,3 +73,8 @@ mat-form-field {
     min-width: 200px;
   }
 }
+
+
+
+
+

@@ -30,22 +30,22 @@
         <!-- Form -->
         <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="max-w-sm mx-auto">
 
-            <div class="mb-[-1rem]" >
+            <div  >
                 <label for="name">Full Name</label>
                 <mat-form-field class="w-full mb-4" appearance="outline">
-                  <input matInput placeholder="Full Name" formControlName="fullName">
+                  <input matInput placeholder="Full Name" formControlName="fullName" class="outline-none border-none focus:ring-0">
                 </mat-form-field>
             </div>
-            <div class="mb-[-1rem]">
+            <div >
                 <label for="email">Email</label>
                 <mat-form-field class="w-full mb-4" appearance="outline">
-                    <input matInput placeholder="Email" formControlName="email">
+                    <input matInput placeholder="Email" formControlName="email" class="outline-none border-none focus:ring-0">
                   </mat-form-field>
             </div>
-            <div class="mb-[-1rem]">
+            <div >
                 <label for="password">Password</label>
                 <mat-form-field class="w-full mb-4" appearance="outline">
-                    <input matInput  placeholder="Password" formControlName="password"  [type]="hide ? 'password' : 'text'">
+                    <input matInput  placeholder="Password" formControlName="password"  [type]="hide ? 'password' : 'text'" class="outline-none border-none focus:ring-0">
                     <button mat-icon-button matSuffix (click)="hide = !hide">
                         <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
                       </button>
