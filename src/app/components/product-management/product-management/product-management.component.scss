@@ -29,5 +29,24 @@ table {
   ::ng-deep .mat-mdc-cell, 
 ::ng-deep .mat-mdc-header-cell {
   background-color: white !important;
-  color: #374151; /* Dark gray text */
+
+}
+.mat-mdc-table {
+  border-collapse: separate;
+  border-spacing: 0 4px; /* Adds spacing between rows */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures border-radius applies */
+}
+
+.mat-mdc-table th, .mat-mdc-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.mat-mdc-table tr:last-child td {
+  border-bottom: none;
+}
+::ng-deep .mat-mdc-menu-content  {
+  background-color: white !important;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }

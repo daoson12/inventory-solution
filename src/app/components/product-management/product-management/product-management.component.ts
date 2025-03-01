@@ -21,7 +21,7 @@ interface Product {
   styleUrl: './product-management.component.scss'
 })
 export class ProductManagementComponent {
-  displayedColumns: string[] = ['name', 'price', 'quantity', 'threshold', 'expiry', 'availability'];
+  displayedColumns: string[] = ['name', 'price', 'quantity', 'threshold', 'expiry', 'availability',  'actions'];
   dataSource = new MatTableDataSource<Product>([
     { name: 'Maggi', price: '₹430', quantity: '43 Packets', threshold: '12 Packets', expiry: '11/12/22', availability: 'In-stock' },
     { name: 'Bru', price: '₹257', quantity: '22 Packets', threshold: '12 Packets', expiry: '21/12/22', availability: 'Out of stock' },
@@ -39,4 +39,20 @@ export class ProductManagementComponent {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
+  viewDetails(item: any) {
+    console.log('View details:', item);
+    // Implement navigation or dialog logic
+  }
+  
+  editItem(item: any) {
+    console.log('Edit item:', item);
+    // Implement edit logic
+  }
+  
+  deleteItem(item: any) {
+    console.log('Delete item:', item);
+    // Implement delete confirmation and logic
+  }
+  
 }
