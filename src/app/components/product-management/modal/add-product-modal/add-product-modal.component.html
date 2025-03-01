@@ -25,6 +25,7 @@
 
       <!-- Form Fields -->
       <div class="grid grid-cols-1 gap-4">
+       
         <mat-form-field appearance="outline" class="w-full">
        
           <input matInput placeholder="Enter product name">
@@ -72,7 +73,7 @@
     <!-- Actions -->
     <div class="flex justify-between mt-4">
      
-      <button class=" bg-[#e0f2fe] px-4 py-2 w-full border border-[#0284c7] text-[#0284c7] rounded-md">Add Product</button>
+      <button (click)="submitProduct()" class=" bg-[#e0f2fe] px-4 py-2 w-full border border-[#0284c7] text-[#0284c7] rounded-md">Add Product</button>
     </div>
   </div>
   
