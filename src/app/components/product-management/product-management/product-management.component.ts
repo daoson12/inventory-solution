@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { AddProductModalComponent } from '../modal/add-product-modal/add-product-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 interface Product {
   name: string;
   price: string;
@@ -35,7 +37,7 @@ export class ProductManagementComponent {
   ]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  constructor(private dialog: MatDialog) {}
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -54,5 +56,9 @@ export class ProductManagementComponent {
     console.log('Delete item:', item);
     // Implement delete confirmation and logic
   }
-  
+  openAddProductDialog() {
+    this.dialog.open(AddProductModalComponent, {
+      width: '900px',
+    });
+}
 }

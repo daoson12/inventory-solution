@@ -1,0 +1,78 @@
+<div class="bg-white  p-6 rounded-lg shadow-lg w-full flex-grow ">
+    <!-- Cancel Icon -->
+  <div class="flex items-center  justify-between">
+      <!-- Title -->
+      <h5 class="text-sm font-semibold mb-4">New Product</h5>
+    <button mat-icon-button class="absolute right-3" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+    
+    
+  </div>
+  
+    <!-- Scrollable Content -->
+    <div class="max-h-[500px]  pr-2 overflow-auto  container">
+      <!-- Image Upload Section -->
+    <!-- Image Upload Section -->
+    <div 
+    class="border-dashed border-2 border-gray-300 rounded-md p-4 flex flex-col items-center justify-center cursor-pointer mb-4"
+    (click)="fileInput.click()">
+    <input type="file" #fileInput (change)="onFileSelected($event)" hidden accept="image/*">
+    <img *ngIf="imagePreview" [src]="imagePreview" alt="Preview" class="w-24 h-24 object-cover rounded-md">
+    <span *ngIf="!imagePreview" class="text-gray-500 text-sm">Drag image here or</span>
+    <span *ngIf="!imagePreview" class="text-blue-600 text-sm cursor-pointer">Browse image</span>
+  </div>
+
+      <!-- Form Fields -->
+      <div class="grid grid-cols-1 gap-4">
+        <mat-form-field appearance="outline" class="w-full">
+       
+          <input matInput placeholder="Enter product name">
+        </mat-form-field>
+  
+     
+  
+        <mat-form-field appearance="outline" class="w-full">
+         
+          <mat-select placeholder="Select product category">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+       
+          <input matInput type="number" placeholder="Enter buying price">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+    
+          <input matInput type="number" placeholder="Enter product quantity">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+          
+          <input matInput placeholder="Enter product unit">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+            <input matInput [matDatepicker]="picker" formControlName="expiryDate" placeholder="Expiry Date">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
+  
+        <mat-form-field appearance="outline" class="w-full">
+          <input matInput type="number" placeholder="Enter threshold value">
+        </mat-form-field>
+      </div>
+    </div>
+  
+  
+  
+    <!-- Actions -->
+    <div class="flex justify-between mt-4">
+      <button mat-button (click)="closeDialog()" class="text-gray-500 px-4 py-2">Discard</button>
+      <button mat-flat-button color="primary" class="px-4 py-2">Add Product</button>
+    </div>
+  </div>
+  
