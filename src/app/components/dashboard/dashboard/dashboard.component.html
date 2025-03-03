@@ -500,42 +500,33 @@
       <h5>Sales & Purchase</h5>
       <button class="calendar-btn">📅 Weekly</button>
     </div>
+    <apx-chart 
+    [series]="chartOptions.series" 
+    [chart]="chartOptions.chart" 
+    [xaxis]="chartOptions.xaxis" 
+    [yaxis]="chartOptions.yaxis"
+    [stroke]="chartOptions.stroke" 
+    [dataLabels]="chartOptions.dataLabels"
+    [legend]="chartOptions.legend"
+    [grid]="chartOptions.grid"
+    [tooltip]="chartOptions.tooltip">
+  </apx-chart>
 
-    <!-- <ngx-charts-bar-vertical
-      *ngIf="salesPurchaseData?.length"
-      [results]="salesPurchaseData || []"
-      [view]="[870, 300]"
-      [scheme]="colorScheme"
-      [xAxis]="true"
-      [yAxis]="true"
-      [legend]="true"
-      [gradient]="false"
-      [roundEdges]="true"
-      [showDataLabel]="true"
-      [yScaleMax]="60000"
-      [yScaleMin]="10000"
-      [xAxisLabel]="'Months'"
-      [yAxisLabel]="'Value'"
-      [animations]="true"
-    >
-    </ngx-charts-bar-vertical> -->
   </div>
   <div class="p-2 rounded-lg shadow-md container chart-container bg-white">
     <h5>Order Summary</h5>
-    <ngx-charts-line-chart
-      *ngIf="orderSummaryData.length"
-      [view]="[430, 300]"
-      [results]="orderSummaryData"
-      [scheme]="colorScheme2"
-      [xAxis]="true"
-      [yAxis]="true"
-      [legend]="true"
-      [autoScale]="true"
-      [animations]="true"
-      [xAxisLabel]="'Months'"
-      [yAxisLabel]="'Value'"
-    >
-    </ngx-charts-line-chart>
+
+  <apx-chart 
+  [series]="chartOptions1.series" 
+  [chart]="chartOptions1.chart" 
+  [xaxis]="chartOptions1.xaxis" 
+  [yaxis]="chartOptions1.yaxis"
+  [stroke]="chartOptions1.stroke" 
+  [dataLabels]="chartOptions1.dataLabels"
+  [legend]="chartOptions1.legend"
+  [grid]="chartOptions1.grid"
+  [tooltip]="chartOptions1.tooltip">
+</apx-chart>
   </div>
 </div>
 

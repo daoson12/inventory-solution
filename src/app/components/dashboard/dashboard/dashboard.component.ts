@@ -3,21 +3,59 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Color, NgxChartsModule, ScaleType } from '@swimlane/ngx-charts';
 import { materials } from '../../../shared/angular-material/material.module';
+import {
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexDataLabels,
+  ApexStroke,
+  ApexLegend,
+  ApexGrid,
+  ApexYAxis,
+  ApexTooltip,
+  NgApexchartsModule
+} from 'ng-apexcharts';
 
+export interface ChartOptions1 {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  legend: ApexLegend;
+  fill: ApexFill;
+  grid: ApexGrid;
+  tooltip: ApexTooltip;
+}
+export interface ChartOptions {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  legend: ApexLegend;
+  grid: ApexGrid;
+  tooltip: ApexTooltip;
+}
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, CommonModule, NgxChartsModule, materials],
+  imports: [RouterOutlet, RouterModule, CommonModule, NgxChartsModule, NgApexchartsModule, materials],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
   collapsed = false;
+  chartOptions!: ChartOptions;
+  chartOptions1!: ChartOptions1;
   displayedColumns: string[] = ['name', 'sold', 'remaining', 'price'];
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.formatChartData();
+    this.initializeChart();
+    this.initializeChart2();
   }
 
 
@@ -32,74 +70,113 @@ export class DashboardComponent implements OnInit {
     { name: 'Lays', remaining: 15, image: 'assets/lays.png' },
     { name: 'Lays', remaining: 15, image: 'assets/lays.png' }
   ];
-  // Color schemes
-  colorScheme: Color = {
-    name: 'customScheme',
-    selectable: true,
-    group: ScaleType.Ordinal,
-    domain: ['#5AA454', '#1E88E5'] // Green for sales, Blue for purchase
-  };
 
-  colorScheme2: Color = {
-    name: 'customScheme2',
-    selectable: true,
-    group: ScaleType.Ordinal,
-    domain: ['#FFA500', '#1E88E5'] // Orange for ordered, Blue for delivered
-  };
 
-  // Sales and Purchase Data
-  salesPurchaseData = [
-    { name: 'Jan', series: [{ name: 'Purchase', value: 50000 }, { name: 'Sales', value: 40000 }] },
-    { name: 'Feb', series: [{ name: 'Purchase', value: 55000 }, { name: 'Sales', value: 45000 }] },
-    { name: 'Mar', series: [{ name: 'Purchase', value: 52000 }, { name: 'Sales', value: 43000 }] },
-    { name: 'Apr', series: [{ name: 'Purchase', value: 48000 }, { name: 'Sales', value: 41000 }] },
-    { name: 'May', series: [{ name: 'Purchase', value: 53000 }, { name: 'Sales', value: 46000 }] },
-    { name: 'Jun', series: [{ name: 'Purchase', value: 58000 }, { name: 'Sales', value: 47000 }] }
-  ];
-
-  // Order Summary Data
-  orderSummaryData = [
-    { name: 'Ordered', series: [{ name: 'Jan', value: 3000 }, { name: 'Feb', value: 3500 }, { name: 'Mar', value: 3200 }, { name: 'Apr', value: 3100 }, { name: 'May', value: 3400 }] },
-    { name: 'Delivered', series: [{ name: 'Jan', value: 2500 }, { name: 'Feb', value: 2800 }, { name: 'Mar', value: 3000 }, { name: 'Apr', value: 2900 }, { name: 'May', value: 3200 }] }
-  ];
-
-  /**
-   * Ensures all values are properly formatted as numbers.
-   */
-  private formatChartData(): void {
-    this.salesPurchaseData = this.salesPurchaseData.map(month => ({
-      ...month,
-      series: month.series.map(item => ({
-        ...item,
-        value: Number(item.value) || 0 // Ensure it's a valid number
-      }))
-    }));
-
-    this.orderSummaryData = this.orderSummaryData.map(category => ({
-      ...category,
-      series: category.series.map(item => ({
-        ...item,
-        value: Number(item.value) || 0
-      }))
-    }));
+  initializeChart() {
+    this.chartOptions = {
+      series: [
+        {
+          name: 'Purchase',
+          data: [50000, 55000, 42000, 38000, 40000, 46000, 30000, 45000, 41000, 39000, 37000, 42000]
+        },
+        {
+          name: 'Sales',
+          data: [42000, 48000, 45000, 35000, 41000, 38000, 35000, 47000, 43000, 40000, 39000, 44000]
+        }
+      ],
+      chart: {
+        type: 'bar',
+        height: 350
+      },
+      xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yaxis: {
+        labels: {
+          formatter: (val) => val.toLocaleString()
+        }
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        position: 'bottom'
+      },
+      grid: {
+        show: true,
+        strokeDashArray: 5
+      },
+      tooltip: {
+        y: {
+          formatter: (val) => `₹${val.toLocaleString()}`
+        }
+      }
+    };
   }
 
-  formatTick(value: number): string {
-    // Handle undefined/null/NaN cases
-    if (typeof value !== 'number' || isNaN(value)) return '0';
-    return new Intl.NumberFormat('en-US').format(value);
+  initializeChart2() {
+    this.chartOptions1 = {
+      series: [
+        {
+          name: 'Ordered',
+          data: [3200, 2200, 2800, 1800, 2400],
+          color: '#c38f66' // Brown color
+        },
+        {
+          name: 'Delivered',
+          data: [2800, 3100, 2900, 3400, 3200],
+          color: '#90caf9' // Light blue color
+        }
+      ],
+      chart: {
+        type: 'area',
+        height: 300
+      },
+      xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+      },
+      yaxis: {
+        labels: {
+          formatter: (val) => val.toLocaleString()
+        }
+      },
+      stroke: {
+        curve: 'smooth',
+        width: 2
+      },
+      dataLabels: {
+        enabled: false
+      },
+      legend: {
+        position: 'bottom'
+      },
+      grid: {
+        show: true,
+        strokeDashArray: 5
+      },
+      fill: {
+        type: 'gradient',
+        gradient: {
+          shadeIntensity: 0.1,
+          opacityFrom: 0.3,
+          opacityTo: 0.1,
+          stops: [0, 100]
+        }
+      },
+      tooltip: {
+        y: {
+          formatter: (val) => `${val.toLocaleString()}`
+        }
+      }
+    };
   }
 
-  /**
-   * Toggles the sidebar state
-   */
-  toggleSidebar(): void {
-    this.collapsed = !this.collapsed;
-  }
 
-  /**
-   * Navigates to the Products page
-   */
   navigateToProducts(): void {
     this.router.navigate(['/products']);
   }
