@@ -1,0 +1,205 @@
+<div>
+  <button
+    mat-button
+    class="border border-gray-300  py-4 rounded-md flex items-center space-x-1"
+  >
+    <mat-icon>arrow_back</mat-icon>
+    <span>Back</span>
+  </button>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-lg w-full">
+  <!-- Header with Buttons -->
+
+  <div class="flex justify-between items-center border-b pb-4">
+    <h4 class="text-xl font-semibold">Maggi</h4>
+    <div class="flex space-x-2">
+      <button
+        mat-button
+        class="border border-gray-300 px-3 py-1 rounded-md flex items-center space-x-1"
+      >
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button mat-button class="border border-gray-300 px-3 py-1 rounded-md">
+        Download
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <mat-tab-group class="mt-4">
+    <mat-tab label="Overview">
+      <div class="grid grid-cols-3 gap-4 mt-4">
+        <div class="col-span-2 space-y-4">
+          <div>
+            <h5 class="font-semibold">Primary Details</h5>
+
+            <div class="mt-4 border-gray-100">
+              <dl class="">
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Product name:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    Maggi
+                  </dd>
+                </div>
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Product ID:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    454547
+                  </dd>
+                </div>
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Product category:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    Instant food
+                  </dd>
+                </div>
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Expiry Date:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    13/4/23
+                  </dd>
+                </div>
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Threshold Value:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    12
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div>
+            <h5 class="font-semibold">Supplier Details</h5>
+
+            <div class="mt-4 border-gray-100">
+              <dl class="">
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Supplier name:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    Ronald Martin
+                  </dd>
+                </div>
+                <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/4 font-medium text-gray-900">
+                    Contact Number:
+                  </dt>
+                  <dd
+                    class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0"
+                  >
+                    98789 84757
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-start space-y-4">
+          <div
+            class="border border-gray-300 p-4 rounded-md w-40 h-40 flex items-center justify-center"
+          >
+            <img
+              src="/assets/maggi.png"
+              alt="Maggi"
+              class="w-full h-full object-contain"
+            />
+          </div>
+          <div class="mt-4 border-t border-gray-100">
+            <dl class="divide-y divide-gray-100">
+              <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/4 font-medium text-gray-900">Full name</dt>
+                <dd class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0">
+                  Margot Foster
+                </dd>
+              </div>
+              <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/4 font-medium text-gray-900">
+                  Application for
+                </dt>
+                <dd class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0">
+                  Backend Developer
+                </dd>
+              </div>
+              <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/4 font-medium text-gray-900">
+                  Email address
+                </dt>
+                <dd class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0">
+                  margotfoster&#44;example.com
+                </dd>
+              </div>
+              <div class="px-4 py-4 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                <dt class="text-sm/4 font-medium text-gray-900">
+                  Salary expectation
+                </dt>
+                <dd class="mt-1 text-sm/4 text-gray-700 sm:col-span-2 sm:mt-0">
+                  $120,000
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <h5 class="font-semibold">Stock Locations</h5>
+        <table class="w-full mt-2 border border-gray-300 rounded-md">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="p-2 text-left border-b">Store Name</th>
+              <th class="p-2 text-right border-b">Stock in hand</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-2">Sulur Branch</td>
+              <td class="p-2 text-right text-blue-400 cursor-pointer">15</td>
+            </tr>
+            <tr>
+              <td class="p-2">Singanallur Branch</td>
+              <td class="p-2 text-right text-blue-400 cursor-pointer">19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Purchases">
+      <p class="p-4 text-gray-400">Purchases content goes here...</p>
+    </mat-tab>
+
+    <mat-tab label="Adjustments">
+      <p class="p-4 text-gray-400">Adjustments content goes here...</p>
+    </mat-tab>
+
+    <mat-tab label="History">
+      <p class="p-4 text-gray-400">History content goes here...</p>
+    </mat-tab>
+  </mat-tab-group>
+</div>
