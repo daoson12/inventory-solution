@@ -40,6 +40,12 @@ export const LAYOUT_ROUTES: Routes = [
           import('../components/manage-store/manage-store.routes').then(
             (m)=>m.MANAGE_STORE_ROUTES
           ),
+      },
+      {
+        path: 'reports', loadChildren:()=>
+          import('../components/reports/report.routes').then(
+            (m)=>m.REPORT_ROUTES
+          ),
       }
     ],
   },
