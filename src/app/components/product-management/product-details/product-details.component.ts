@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { materials } from '../../../shared/angular-material/material.module';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, materials],
+  imports: [CommonModule, materials, RouterModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
