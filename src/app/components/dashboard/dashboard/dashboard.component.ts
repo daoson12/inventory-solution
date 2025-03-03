@@ -138,7 +138,7 @@ export class DashboardComponent implements OnInit {
         height: 300
       },
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       },
       yaxis: {
         labels: {
