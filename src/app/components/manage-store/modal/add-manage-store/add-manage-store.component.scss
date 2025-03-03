@@ -1,0 +1,38 @@
+/* Custom Scrollbar for .container Content */
+.container {
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+    scrollbar-color: rgba(100, 100, 100, 0.5) transparent; /* Custom color */
+  }
+  
+  /* Webkit-based browsers (Chrome, Edge, Safari) */
+  .container::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+    height: 6px;
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5); /* Light gray with transparency */
+    border-radius: 6px; /* Rounded edges */
+  }
+  
+  .container::-webkit-scrollbar-thumb:hover {
+    background: rgba(100, 100, 100, 0.8); /* Darker on hover */
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background: transparent; /* Invisible track */
+  }
+  
+  /* Auto-hide scrollbar */
+  .container::-webkit-scrollbar {
+    display: none; /* Hide by default */
+  }
+  
+  .container:hover::-webkit-scrollbar {
+    display: block; /* Show on hover */
+  }
+
+  .mat-mdc-checkbox {
+    @apply text-gray-600;
+  }
+  

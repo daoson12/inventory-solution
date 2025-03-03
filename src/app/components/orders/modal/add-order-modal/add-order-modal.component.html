@@ -1,0 +1,73 @@
+<div class="bg-white  p-6 rounded-lg shadow-lg w-full flex-grow ">
+    <!-- Cancel Icon -->
+  <div class="flex items-center  justify-between">
+      <!-- Title -->
+      <h5 class="text-sm font-semibold mb-4">New Order</h5>
+    <button mat-icon-button class="absolute right-3" (click)="closeDialog()">
+        <mat-icon>close</mat-icon>
+      </button>
+    
+    
+  </div>
+  
+    <!-- Scrollable Content -->
+    <div class="max-h-[500px] mt-4 pr-2 overflow-auto  container">
+
+      <!-- Form Fields -->
+      <form class="grid grid-cols-1 gap-4">
+       
+        <mat-form-field appearance="outline" class="w-full">
+       
+          <input matInput placeholder="Enter product name">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+         
+          <mat-select placeholder="Select product category">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+       
+          <input matInput type="number" placeholder="Enter order value">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+    
+          <input matInput type="number" placeholder="Enter product quantity">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+          
+          <input matInput placeholder="Enter product unit">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full">
+          
+            <input matInput placeholder="Enter buying price">
+          </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="w-full">
+            <input matInput [matDatepicker]="picker" formControlName="expiryDate" placeholder="Enter date of delivery">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        
+          <label class="flex items-center space-x-2 mb-2 text-gray-600">
+            <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500" checked>
+            <span>Notify on the date of delivery</span>
+          </label>
+          
+      </form>
+    </div>
+  
+  
+  
+    <!-- Actions -->
+    <div class="flex justify-between mt-4">
+     
+      <button (click)="submitOrder()" class=" bg-[#e0f2fe] px-4 py-2 w-full border border-[#0284c7] text-[#0284c7] rounded-md">Add Order</button>
+    </div>
+  </div>
+  

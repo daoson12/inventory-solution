@@ -28,6 +28,19 @@ export const LAYOUT_ROUTES: Routes = [
             (m) => m.SUPPLIER_ROUTES
           ),
       },
+      {
+        path: 'orders',
+        loadChildren:()=>
+          import('../components/orders/order.routes').then(
+            (m)=>m.ORDER_ROUTES
+          ),
+      },
+      {
+        path:'manage-store', loadChildren:()=>
+          import('../components/manage-store/manage-store.routes').then(
+            (m)=>m.MANAGE_STORE_ROUTES
+          ),
+      }
     ],
   },
 ];
