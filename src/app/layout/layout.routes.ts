@@ -21,6 +21,13 @@ export const LAYOUT_ROUTES: Routes = [
             (m) => m.PRODUCT_ROUTES
           ),
       },
+      {
+        path: 'suppliers',
+        loadChildren: () =>
+          import('../components/suppliers/supplier.routes').then(
+            (m) => m.SUPPLIER_ROUTES
+          ),
+      },
     ],
   },
 ];
