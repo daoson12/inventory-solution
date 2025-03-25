@@ -145,8 +145,9 @@
     </a>
 
     <a
-      routerLink="/logout"
-      routerLinkActive="active-link"
+     
+      (click)="logout()"
+
       [matTooltip]="collapsed ? 'Log Out' : ''" 
       class="flex items-center p-3 rounded-lg hover:bg-gray-100 transition-all"
       [ngClass]="{ 'justify-center': collapsed }"

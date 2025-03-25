@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { materials } from '../../shared/angular-material/material.module';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,8 @@ import { Router, RouterOutlet } from '@angular/router';
 export class LoginComponent {
   loginForm: FormGroup;
   hide = true; // Hide password toggle
-
-  constructor(private fb: FormBuilder, private router:Router) {
+  errorMessage = '';
+  constructor(private fb: FormBuilder, private router:Router,private authService: AuthService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -32,13 +33,11 @@ export class LoginComponent {
     this.router.navigate(['/sign-up']);
 
   }
+  
   login() {
-    // Perform authentication logic here (e.g., API call)
-    
-    // Simulating a successful login
-    localStorage.setItem('user', JSON.stringify({ loggedIn: true }));
+    if (!this.authService.login(this.loginForm.value)) {
+      this.errorMessage = 'Invalid username or password';
+    }
+}
 
-    // Redirect to dashboard
-    this.router.navigate(['/app']);
-  }
 }

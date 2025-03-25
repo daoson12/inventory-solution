@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -27,6 +28,13 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class SideBarComponent {
   @Input() collapsed = false;
+
+  constructor(private authService:AuthService) {}
+
+
+  logout() {
+    this.authService.logout();
+  }
 
   
 }

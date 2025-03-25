@@ -15,6 +15,7 @@ import {
   ApexTooltip,
   NgApexchartsModule
 } from 'ng-apexcharts';
+import { AuthService } from '../../../auth/auth.service';
 
 export interface ChartOptions1 {
   series: ApexAxisChartSeries;
@@ -48,11 +49,16 @@ export interface ChartOptions {
 })
 export class DashboardComponent implements OnInit {
   collapsed = false;
+  isLoggedIn = false;
   chartOptions!: ChartOptions;
   chartOptions1!: ChartOptions1;
   displayedColumns: string[] = ['name', 'sold', 'remaining', 'price'];
-  constructor(private router: Router) {}
-
+ 
+  constructor(private authService: AuthService,private router: Router) {
+    this.authService.authStatus.subscribe(status => {
+      this.isLoggedIn = status;
+    });
+  }
   ngOnInit(): void {
     this.initializeChart();
     this.initializeChart2();
